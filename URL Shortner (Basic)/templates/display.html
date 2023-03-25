@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block content %}
+<form action="" method="get">
+    <input id="short""
+      style="line-height: 25px; width: 250px"
+      type="text"
+      name="short_url"
+      value="{{short_url}}""
+      readonly
+    />
+</form>
+<button onclick="copyText(short.value)" style="margin: 15px; font-size: 15px">Copy Short URL</button>
+<label id="confirm"></label>
+<br>
+<form action="{{url_for('home')}}" method="get">
+    <button style="font-size: 15px">Back</button>
+</form>
+<script>
+    function copyText(short_url) {
+        /* Copy text into clipboard */
+        navigator.clipboard.writeText
+            (short_url);
+        var confirmation=document.getElementById("confirm")
+        confirmation.textContent="Copied!"
+    }
+</script>
+{%endblock%}
